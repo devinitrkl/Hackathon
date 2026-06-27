@@ -47,12 +47,12 @@ UI runs at `http://localhost:5173`.
 ### 4. (Optional) Enable AI routing
 
 ```bash
-export LLM_API_KEY=your-gemini-key
+export GEMINI_API_KEY=your-gemini-key
 export ROUTING_STRATEGY=ai
 cd backend && ./mvnw spring-boot:run
 ```
 
-Default strategy is `rule-based` — no API key required.
+Default strategy is `ai` (falls back to rule-based automatically if no key is set).
 
 ## Demo path (re-plan loop)
 
@@ -84,11 +84,16 @@ ADR.md       Architecture decision records
 
 ## Configuration
 
-| Property / Env | Default | Description |
-|----------------|---------|-------------|
-| `routing.strategy` / `ROUTING_STRATEGY` | `rule-based` | Active routing strategy (`rule-based` or `ai`) |
-| `LLM_API_KEY` | — | Gemini API key (required for `ai` strategy) |
-| `llm.model` | `gemini-2.5-flash` | Gemini model name |
+All config is passed via environment variables. The app works locally with no env vars set (sensible defaults apply).
+
+| Env var | Default | Description |
+|---------|---------|-------------|
+| `DB_URL` | `jdbc:postgresql://localhost:5432/hackathon` | Postgres JDBC URL |
+| `DB_USERNAME` | `ritikapatel` | Postgres username |
+| `DB_PASSWORD` | *(empty)* | Postgres password |
+| `GEMINI_API_KEY` | *(empty)* | Gemini API key (falls back to rule-based if absent) |
+| `ROUTING_STRATEGY` | `ai` | Active routing strategy (`rule-based` or `ai`) |
+| `CORS_ALLOWED_ORIGINS` | `http://localhost:5173` | Allowed frontend origin |
 
 ## Submission checklist
 
