@@ -1,0 +1,44 @@
+# ─── Maven / Spring Boot ───────────────────────────────────────────────────────
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+
+# ─── IDE ────────────────────────────────────────────────────────────────────────
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.DS_Store
+Thumbs.db
+
+# ─── Node / React / Vite ────────────────────────────────────────────────────────
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+frontend/coverage/
+
+# ─── Environment / Secrets ─────────────────────────────────────────────────────
+# Never commit real secrets. API keys go in ~/.zshrc or platform env vars.
+.env
+.env.local
+*.env
+backend/src/main/resources/application-local.properties
+
+# ─── Logs ───────────────────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ─── OS / Misc ──────────────────────────────────────────────────────────────────
+.DS_Store
+*.swp
+*.swo
